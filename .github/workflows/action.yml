@@ -26,9 +26,11 @@ jobs:
         cpack -G "TGZ"
         cpack -G "DEB"
         cpack -G "RPM"
+        cpack -G "ZIP"
         mv *.tar.gz ../../artifacts
         mv *.deb ../../artifacts
         mv *.rpm ../../artifacts
+        mv *.zip ../../artifacts
       shell: bash
       working-directory: solver_application
 
