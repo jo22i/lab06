@@ -1,3 +1,5 @@
+[![Actions' artifacts is here](https://github.com/jo22i/lab06/actions/workflows/action.yml/badge.svg)](https://github.com/jo22i/lab06/actions/workflows/action.yml)
+
 # Лабораторная работа №6
 
 ## Выполнил - студент группы ИУ8-22 Мельников Егор
