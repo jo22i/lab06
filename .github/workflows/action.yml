@@ -33,7 +33,7 @@ jobs:
       working-directory: solver_application
 
     - name: Upload_artifacts
-      uses: actions/upload-artifacts@v2
+      uses: actions/upload-artifact@v3
       with:
         name: artifact
-        path: artifacts/
+        path: artifacts
