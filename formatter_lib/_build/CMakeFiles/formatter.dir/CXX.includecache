@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/super_pro_hack_man/jo22i/workspace/reports/lab03/formatter_lib/formatter.cpp
+formatter.h
+/home/super_pro_hack_man/jo22i/workspace/reports/lab03/formatter_lib/formatter.h
+
+/home/super_pro_hack_man/jo22i/workspace/reports/lab03/formatter_lib/formatter.h
+string
+-
+
