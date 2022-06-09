@@ -1,4 +1,11 @@
 name: CPack_action
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
 jobs:
   Build:
     runs-on: ubuntu-latest
@@ -9,34 +16,24 @@ jobs:
       
     - name: Creating directory for future binary and source code
       run: |
-        mkdir bin
+        mkdir artifacts
     
-    - name: Build a *formatter* library
-      run: |
-        cmake -H. -B_build
-        cmake --build _build
-      shell: bash
-      working-directory: formatter_lib
-      
-    - name: Build a *formatter_ex* library
-      run: |
-        cmake -H. -B_build
-        cmake --build _build
-      shell: bash
-      working-directory: formatter_ex_lib
-      
-    - name: Build a *solver* library
-      run: |
-        cmake -H. -B_build
-        cmake --build _build
-      shell: bash
-      working-directory: solver_lib
-      
     - name: Build a *solver* application
       run: |
         cmake -H. -B_build
-        cmake --build _build
+        cmake --build _build --target package
         cd _build
-        mv solver_app ../../bin
+        cpack -G "TGZ"
+        cpack -G "DEB"
+        cpack -G "RPM"
+        mv *.tar.gz ../../artifacts
+        mv *.deb ../../artifacts
+        mv *.rpm ../../artifacts
       shell: bash
       working-directory: solver_application
+
+    - name: Upload_artifacts
+      uses: actions/upload-artifacts@v2
+      with:
+        name: artifact
+        path: artifacts/
